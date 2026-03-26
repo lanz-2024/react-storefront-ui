@@ -1,0 +1,89 @@
+{
+  "name": "react-storefront-ui",
+  "version": "0.1.0",
+  "description": "Accessible React component library for storefronts — atomic design, WCAG AA, tree-shakeable",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./atoms": {
+      "import": "./dist/atoms/index.js",
+      "require": "./dist/atoms/index.cjs"
+    },
+    "./molecules": {
+      "import": "./dist/molecules/index.js",
+      "require": "./dist/molecules/index.cjs"
+    },
+    "./organisms": {
+      "import": "./dist/organisms/index.js",
+      "require": "./dist/organisms/index.cjs"
+    },
+    "./tokens": "./dist/tokens/design-tokens.css"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --reporter=junit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.0",
+    "@storybook/addon-a11y": "^8.0.0",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "axe-core": "^4.10.0",
+    "jsdom": "^25.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "storybook": "^8.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0",
+    "vitest-axe": "^0.1.0"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "keywords": [
+    "react",
+    "component-library",
+    "storefront",
+    "accessible",
+    "wcag",
+    "atomic-design",
+    "tailwindcss"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/react-storefront-ui"
+  }
+}
