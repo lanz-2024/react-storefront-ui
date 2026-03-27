@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { QuantitySelector } from './QuantitySelector';
-const meta: Meta<typeof QuantitySelector> = { title: 'Molecules/QuantitySelector', component: QuantitySelector };
+
+const meta: Meta<typeof QuantitySelector> = {
+  title: 'Molecules/QuantitySelector',
+  component: QuantitySelector,
+};
 export default meta;
 export const Default: StoryObj<typeof QuantitySelector> = {
   render: (args) => {

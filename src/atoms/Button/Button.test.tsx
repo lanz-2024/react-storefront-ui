@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { axe } from 'vitest-axe';
 import { describe, expect, it, vi } from 'vitest';
+import { axe } from 'vitest-axe';
 import { Button } from './Button';
 
 describe('Button', () => {
@@ -77,7 +77,11 @@ describe('Button', () => {
     });
 
     it('shows the loading label for screen readers', () => {
-      render(<Button isLoading loadingLabel="Processing your order">Submit</Button>);
+      render(
+        <Button isLoading loadingLabel="Processing your order">
+          Submit
+        </Button>,
+      );
       expect(screen.getByText('Processing your order')).toBeInTheDocument();
     });
 
@@ -92,7 +96,11 @@ describe('Button', () => {
     it('prevents click when loading', async () => {
       const user = userEvent.setup();
       const handler = vi.fn();
-      render(<Button isLoading onClick={handler}>Click</Button>);
+      render(
+        <Button isLoading onClick={handler}>
+          Click
+        </Button>,
+      );
       await user.click(screen.getByRole('button'));
       expect(handler).not.toHaveBeenCalled();
     });
@@ -107,20 +115,28 @@ describe('Button', () => {
     it('prevents click when disabled', async () => {
       const user = userEvent.setup();
       const handler = vi.fn();
-      render(<Button disabled onClick={handler}>Disabled</Button>);
+      render(
+        <Button disabled onClick={handler}>
+          Disabled
+        </Button>,
+      );
       await user.click(screen.getByRole('button'));
       expect(handler).not.toHaveBeenCalled();
     });
   });
 
   describe('variants', () => {
-    it.each(['primary', 'secondary', 'ghost', 'destructive', 'outline', 'link'] as const)(
-      'renders %s variant',
-      (variant) => {
-        render(<Button variant={variant}>{variant}</Button>);
-        expect(screen.getByRole('button')).toBeInTheDocument();
-      },
-    );
+    it.each([
+      'primary',
+      'secondary',
+      'ghost',
+      'destructive',
+      'outline',
+      'link',
+    ] as const)('renders %s variant', (variant) => {
+      render(<Button variant={variant}>{variant}</Button>);
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
   });
 
   describe('sizes', () => {

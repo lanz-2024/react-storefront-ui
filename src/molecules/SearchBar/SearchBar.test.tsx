@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
-import { describe, it, expect, vi } from 'vitest';
 import { SearchBar } from './SearchBar';
+
 describe('SearchBar', () => {
   it('renders without a11y violations', async () => {
     const { container } = render(<SearchBar onSearch={vi.fn()} />);

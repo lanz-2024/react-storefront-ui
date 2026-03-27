@@ -1,9 +1,7 @@
 'use client';
+import type { ReactNode } from 'react';
 import { useEffect, useRef } from 'react';
 import { useFocusTrap } from '../../hooks/use-focus-trap';
-import { VisuallyHidden } from '../../atoms/VisuallyHidden';
-import { Button } from '../../atoms/Button';
-import type { ReactNode } from 'react';
 
 export interface CartDrawerProps {
   isOpen: boolean;
@@ -16,20 +14,28 @@ export function CartDrawer({ isOpen, onClose, children, itemCount = 0 }: CartDra
   const drawerRef = useRef<HTMLDivElement>(null);
   useFocusTrap(drawerRef, isOpen);
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape' && isOpen) onClose(); };
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) onClose();
+    };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
   }, [isOpen, onClose]);
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/50 z-40 transition-opacity" onClick={onClose} aria-hidden="true" />
+      <div
+        className="fixed inset-0 bg-black/50 z-40 transition-opacity"
+        onClick={onClose}
+        aria-hidden="true"
+      />
       <div
         ref={drawerRef}
         role="dialog"
@@ -40,11 +46,14 @@ export function CartDrawer({ isOpen, onClose, children, itemCount = 0 }: CartDra
         <div className="flex items-center justify-between border-b px-4 py-3">
           <h2 className="text-lg font-semibold">Your Cart ({itemCount})</h2>
           <button
+            type="button"
             onClick={onClose}
             className="rounded-md p-1 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="Close cart"
           >
-            <span aria-hidden="true" className="text-xl leading-none">×</span>
+            <span aria-hidden="true" className="text-xl leading-none">
+              ×
+            </span>
           </button>
         </div>
         <div className="flex-1 overflow-y-auto p-4">{children}</div>

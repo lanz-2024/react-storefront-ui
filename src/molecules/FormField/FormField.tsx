@@ -1,6 +1,5 @@
 import { Input, type InputProps } from '../../atoms/Input';
 import { cn } from '../../utils/cn';
-import type { ReactNode } from 'react';
 
 export interface FormFieldProps extends InputProps {
   label: string;
@@ -13,8 +12,14 @@ export function FormField({ label, hint, className, id, error, ...inputProps }: 
   const hintId = hint ? `${fieldId}-hint` : undefined;
   return (
     <div className={cn('flex flex-col gap-1.5', className)}>
-      <label htmlFor={fieldId} className="text-sm font-medium leading-none">{label}</label>
-      {hint && <p id={hintId} className="text-xs text-muted-foreground">{hint}</p>}
+      <label htmlFor={fieldId} className="text-sm font-medium leading-none">
+        {label}
+      </label>
+      {hint && (
+        <p id={hintId} className="text-xs text-muted-foreground">
+          {hint}
+        </p>
+      )}
       <Input id={fieldId} error={error} aria-describedby={hintId} {...inputProps} />
     </div>
   );

@@ -17,14 +17,26 @@ type Story = StoryObj<typeof CartDrawer>;
 const sampleCartItems = (
   <div className="space-y-4">
     <div className="flex items-center gap-4">
-      <img src="https://placehold.co/80x80" alt="Classic White T-Shirt" width={80} height={80} className="rounded" />
+      <img
+        src="https://placehold.co/80x80"
+        alt="Classic White T-Shirt"
+        width={80}
+        height={80}
+        className="rounded"
+      />
       <div>
         <p className="font-medium">Classic White T-Shirt</p>
         <p className="text-sm text-muted-foreground">$29.99 × 2</p>
       </div>
     </div>
     <div className="flex items-center gap-4">
-      <img src="https://placehold.co/80x80" alt="Blue Denim Jacket" width={80} height={80} className="rounded" />
+      <img
+        src="https://placehold.co/80x80"
+        alt="Blue Denim Jacket"
+        width={80}
+        height={80}
+        className="rounded"
+      />
       <div>
         <p className="font-medium">Blue Denim Jacket</p>
         <p className="text-sm text-muted-foreground">$89.99 × 1</p>

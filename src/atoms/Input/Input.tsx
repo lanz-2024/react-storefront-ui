@@ -1,5 +1,5 @@
-import { cn } from '../../utils/cn';
 import { forwardRef, type InputHTMLAttributes } from 'react';
+import { cn } from '../../utils/cn';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
@@ -19,17 +19,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
             'disabled:cursor-not-allowed disabled:opacity-50',
             error && 'border-destructive focus-visible:ring-destructive',
-            className
+            className,
           )}
           aria-invalid={error ? 'true' : undefined}
           aria-describedby={[describedBy, errorId].filter(Boolean).join(' ') || undefined}
           {...props}
         />
         {error && errorId && (
-          <p id={errorId} className="text-sm text-destructive" role="alert">{error}</p>
+          <p id={errorId} className="text-sm text-destructive" role="alert">
+            {error}
+          </p>
         )}
       </div>
     );
-  }
+  },
 );
 Input.displayName = 'Input';
