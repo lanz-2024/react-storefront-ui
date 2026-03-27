@@ -41,8 +41,11 @@ export function ProductCard({ id, name, price, compareAtPrice, image, slug, badg
           </a>
         </h3>
         <div className="mt-2">
-          <Price amount={price} saleAmount={compareAtPrice !== undefined && compareAtPrice > price ? price : undefined}
-            {...(compareAtPrice !== undefined && compareAtPrice > price ? { amount: compareAtPrice, saleAmount: price } : { amount: price })} />
+          {compareAtPrice !== undefined && compareAtPrice > price ? (
+            <Price amount={compareAtPrice} saleAmount={price} />
+          ) : (
+            <Price amount={price} />
+          )}
         </div>
         <Button
           className="mt-3 w-full"

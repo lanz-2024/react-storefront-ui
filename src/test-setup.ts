@@ -1,3 +1,4 @@
+/// <reference types="vitest/globals" />
 import '@testing-library/jest-dom';
 import { configureAxe } from 'vitest-axe';
 import 'vitest-axe/extend-expect';

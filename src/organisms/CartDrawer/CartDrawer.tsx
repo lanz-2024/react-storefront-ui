@@ -1,8 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { useFocusTrap } from '../../hooks/use-focus-trap';
-import { VisuallyHidden } from '../../atoms/VisuallyHidden';
-import { Button } from '../../atoms/Button';
 import type { ReactNode } from 'react';
 
 export interface CartDrawerProps {

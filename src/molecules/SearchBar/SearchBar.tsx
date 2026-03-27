@@ -28,8 +28,11 @@ export function SearchBar({ placeholder = 'Search products...', suggestions = []
     else if (e.key === 'ArrowUp') { e.preventDefault(); setActiveIndex((i) => Math.max(i - 1, -1)); }
     else if (e.key === 'Enter' && activeIndex >= 0) {
       e.preventDefault();
-      onSearch(suggestions[activeIndex].label);
-      setQuery(suggestions[activeIndex].label);
+      const active = suggestions[activeIndex];
+      if (active) {
+        onSearch(active.label);
+        setQuery(active.label);
+      }
       setIsOpen(false);
     } else if (e.key === 'Escape') { setIsOpen(false); setActiveIndex(-1); }
   }, [isOpen, suggestions, activeIndex, onSearch, query]);

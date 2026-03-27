@@ -26,5 +26,5 @@
     "verbatimModuleSyntax": false
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.test.ts", "**/*.stories.tsx"]
+  "exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.test.ts", "**/*.stories.tsx", "src/test-setup.ts"]
 }
