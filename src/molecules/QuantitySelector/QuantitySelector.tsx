@@ -8,9 +8,16 @@ export interface QuantitySelectorProps {
   className?: string;
 }
 
-export function QuantitySelector({ value, min = 1, max = 99, onChange, className }: QuantitySelectorProps) {
+export function QuantitySelector({
+  value,
+  min = 1,
+  max = 99,
+  onChange,
+  className,
+}: QuantitySelectorProps) {
   return (
-    <div className={cn('flex items-center gap-2', className)} role="group" aria-label="Quantity">
+    <fieldset className={cn('flex items-center gap-2 border-0 p-0 m-0', className)}>
+      <legend className="sr-only">Quantity</legend>
       <button
         type="button"
         onClick={() => onChange(Math.max(min, value - 1))}
@@ -20,7 +27,10 @@ export function QuantitySelector({ value, min = 1, max = 99, onChange, className
       >
         −
       </button>
-      <span className="w-10 text-center tabular-nums font-medium" aria-live="polite" aria-label={`Quantity: ${value}`}>{value}</span>
+      <span className="w-10 text-center tabular-nums font-medium" aria-live="polite">
+        <span className="sr-only">Quantity: </span>
+        {value}
+      </span>
       <button
         type="button"
         onClick={() => onChange(Math.min(max, value + 1))}
@@ -30,6 +40,6 @@ export function QuantitySelector({ value, min = 1, max = 99, onChange, className
       >
         +
       </button>
-    </div>
+    </fieldset>
   );
 }

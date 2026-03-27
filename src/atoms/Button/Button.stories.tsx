@@ -50,9 +50,15 @@ export const Disabled: Story = {
 export const AllSizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-      <Button variant="primary" size="sm">Small</Button>
-      <Button variant="primary" size="md">Medium</Button>
-      <Button variant="primary" size="lg">Large</Button>
+      <Button variant="primary" size="sm">
+        Small
+      </Button>
+      <Button variant="primary" size="md">
+        Medium
+      </Button>
+      <Button variant="primary" size="lg">
+        Large
+      </Button>
     </div>
   ),
 };

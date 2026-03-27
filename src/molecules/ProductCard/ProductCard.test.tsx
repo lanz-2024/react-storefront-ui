@@ -1,11 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
-import { describe, it, expect, vi } from 'vitest';
 import { ProductCard } from './ProductCard';
 
 const defaultProps = {
-  id: '1', name: 'Test Widget', price: 29.99,
+  id: '1',
+  name: 'Test Widget',
+  price: 29.99,
   image: { src: '/test.jpg', alt: 'Test Widget' },
   slug: 'test-widget',
 };
