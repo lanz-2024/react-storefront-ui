@@ -24,13 +24,18 @@ export function ProductGrid({ products, loading, className }: ProductGridProps) 
   if (loading) {
     return (
       <div className={cn('grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4', className)}>
-        {Array.from({ length: 8 }).map((_, i) => <ProductSkeleton key={i} />)}
+        {Array.from({ length: 8 }, (_, i) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: skeleton items have no stable id
+          <ProductSkeleton key={`skeleton-${i}`} />
+        ))}
       </div>
     );
   }
   return (
     <div className={cn('grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4', className)}>
-      {products.map((product) => <ProductCard key={product.id} {...product} />)}
+      {products.map((product) => (
+        <ProductCard key={product.id} {...product} />
+      ))}
     </div>
   );
 }

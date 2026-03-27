@@ -1,17 +1,22 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.0/schema.json",
-  "organizeImports": {
-    "enabled": true
+  "$schema": "https://biomejs.dev/schemas/2.4.9/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on"
+        }
+      }
+    }
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
-      "accessibility": {
+      "a11y": {
         "noAccessKey": "error",
         "noAriaHiddenOnFocusable": "error",
         "noAriaUnsupportedElements": "error",
-        "noBlankTarget": "error",
         "noDistractingElements": "error",
         "noHeaderScope": "error",
         "noInteractiveElementToNoninteractiveRole": "error",
@@ -59,6 +64,14 @@
     }
   },
   "files": {
-    "ignore": ["dist", "node_modules", "storybook-static", "coverage", "*.config.ts", "*.config.js"]
+    "includes": [
+      "**",
+      "!**/dist",
+      "!**/node_modules",
+      "!**/storybook-static",
+      "!**/coverage",
+      "!**/*.config.ts",
+      "!**/*.config.js"
+    ]
   }
 }

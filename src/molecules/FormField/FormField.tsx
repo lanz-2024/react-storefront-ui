@@ -12,9 +12,20 @@ export function FormField({ label, hint, className, id, error, ...inputProps }: 
   const hintId = hint ? `${fieldId}-hint` : undefined;
   return (
     <div className={cn('flex flex-col gap-1.5', className)}>
-      <label htmlFor={fieldId} className="text-sm font-medium leading-none">{label}</label>
-      {hint && <p id={hintId} className="text-xs text-muted-foreground">{hint}</p>}
-      <Input id={fieldId} aria-describedby={hintId} {...(error !== undefined ? { error } : {})} {...inputProps} />
+      <label htmlFor={fieldId} className="text-sm font-medium leading-none">
+        {label}
+      </label>
+      {hint && (
+        <p id={hintId} className="text-xs text-muted-foreground">
+          {hint}
+        </p>
+      )}
+      <Input
+        id={fieldId}
+        aria-describedby={hintId}
+        {...(error !== undefined ? { error } : {})}
+        {...inputProps}
+      />
     </div>
   );
 }

@@ -8,8 +8,15 @@ export interface QuantitySelectorProps {
   className?: string;
 }
 
-export function QuantitySelector({ value, min = 1, max = 99, onChange, className }: QuantitySelectorProps) {
+export function QuantitySelector({
+  value,
+  min = 1,
+  max = 99,
+  onChange,
+  className,
+}: QuantitySelectorProps) {
   return (
+    // biome-ignore lint/a11y/useSemanticElements: div with role="group" is correct for quantity stepper
     <div className={cn('flex items-center gap-2', className)} role="group" aria-label="Quantity">
       <button
         type="button"
@@ -20,7 +27,9 @@ export function QuantitySelector({ value, min = 1, max = 99, onChange, className
       >
         −
       </button>
-      <span className="w-10 text-center tabular-nums font-medium" aria-live="polite" aria-label={`Quantity: ${value}`}>{value}</span>
+      <span className="w-10 text-center tabular-nums font-medium" aria-live="polite" role="status">
+        {value}
+      </span>
       <button
         type="button"
         onClick={() => onChange(Math.min(max, value + 1))}

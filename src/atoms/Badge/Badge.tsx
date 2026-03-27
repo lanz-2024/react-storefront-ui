@@ -14,11 +14,17 @@ const badgeVariants = cva(
       },
     },
     defaultVariants: { variant: 'default' },
-  }
+  },
 );
 
-export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof badgeVariants> {}
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    VariantProps<typeof badgeVariants> {}
 
 export function Badge({ className, variant, children, ...props }: BadgeProps) {
-  return <span className={cn(badgeVariants({ variant }), className)} {...props}>{children}</span>;
+  return (
+    <span className={cn(badgeVariants({ variant }), className)} {...props}>
+      {children}
+    </span>
+  );
 }

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
-import { describe, it, expect, vi } from 'vitest';
 import { QuantitySelector } from './QuantitySelector';
 
 describe('QuantitySelector', () => {

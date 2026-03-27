@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentPropsWithoutRef, type ElementType, type ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
 import { cn } from '../../utils/cn';
 
 export const buttonVariants = cva(
@@ -118,9 +118,7 @@ export function Button<T extends ElementType = 'button'>({
       {...typeProps}
       {...props}
     >
-      {isLoading && (
-        <span className="sr-only">{loadingLabel}</span>
-      )}
+      {isLoading && <span className="sr-only">{loadingLabel}</span>}
       {isLoading && (
         <svg
           aria-hidden="true"
