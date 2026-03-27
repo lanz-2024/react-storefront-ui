@@ -1,0 +1,13 @@
+# Docker Compose for react-storefront-ui Storybook.
+# Runs Storybook on port 6006 for visual component review.
+services:
+  storybook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6006:6006"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: pnpm storybook -- --no-open --port 6006 --host 0.0.0.0
