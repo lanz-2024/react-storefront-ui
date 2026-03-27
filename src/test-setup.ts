@@ -1,7 +1,16 @@
 /// <reference types="vitest/globals" />
 import '@testing-library/jest-dom';
+import { expect } from 'vitest';
 import { configureAxe } from 'vitest-axe';
-import 'vitest-axe/extend-expect';
+import { toHaveNoViolations } from 'vitest-axe/matchers';
+
+// Register axe matchers (vitest-axe@0.1.0 extend-expect.js is empty — must extend manually)
+expect.extend({ toHaveNoViolations });
+
+// Suppress jsdom "not implemented" noise from axe-core's color-contrast canvas check
+Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
+  value: () => null,
+});
 
 // Configure axe for all tests
 configureAxe({
