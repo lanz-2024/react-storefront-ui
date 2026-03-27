@@ -1,8 +1,48 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ProductCard } from './ProductCard';
-const meta: Meta<typeof ProductCard> = { title: 'Molecules/ProductCard', component: ProductCard };
+
+const meta: Meta<typeof ProductCard> = {
+  title: 'Molecules/ProductCard',
+  component: ProductCard,
+  parameters: { layout: 'centered' },
+  tags: ['autodocs'],
+};
+
 export default meta;
 type Story = StoryObj<typeof ProductCard>;
-export const Default: Story = { args: { id: '1', name: 'Premium Widget', price: 29.99, image: { src: 'https://placehold.co/400', alt: 'Widget' }, slug: 'premium-widget' } };
-export const OnSale: Story = { args: { ...Default.args, compareAtPrice: 49.99, badge: 'sale' } };
-export const OutOfStock: Story = { args: { ...Default.args, stockStatus: 'outofstock', badge: 'out-of-stock' } };
+
+const sampleProduct = {
+  id: 'classic-white-t-shirt',
+  name: 'Classic White T-Shirt',
+  slug: 'classic-white-t-shirt',
+  price: 29.99,
+  image: { src: 'https://placehold.co/400x400', alt: 'Classic White T-Shirt' },
+};
+
+export const Default: Story = {
+  args: { ...sampleProduct },
+};
+
+export const OnSale: Story = {
+  args: {
+    ...sampleProduct,
+    compareAtPrice: 29.99,
+    price: 19.99,
+    badge: 'sale',
+  },
+};
+
+export const OutOfStock: Story = {
+  args: {
+    ...sampleProduct,
+    stockStatus: 'outofstock',
+    badge: 'out-of-stock',
+  },
+};
+
+export const LongTitle: Story = {
+  args: {
+    ...sampleProduct,
+    name: 'Premium Organic Cotton Long-Sleeve Crew Neck T-Shirt in Classic White',
+  },
+};
